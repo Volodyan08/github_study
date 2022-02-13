@@ -1,11 +1,9 @@
-# Field validation
+# JOIN without related records
 
-For validation field in Marshmallow use @validates
+JOIN for find elements with removed related records
 
-    service = fields.ExtendedPluck(B2BServiceSerializer, required=True)
+    select O.id from "Order" as O where not exists (select OI.id from "OrderItem" as OI where OI.order_id = O.id)
 
-    @validates("service")
-    def validate_service(self, value):
-        existing_service = B2BService.select().where(B2BService.id == value).exists()
-        if not existing_service:
-            raise DELETED_SERVICE_ERROR.exception
+or next query
+
+    select O.id from "Order" as O where O.id not in (select OI.order_id from "OrderItem" as OI)
