@@ -1,6 +1,6 @@
 # Installing PostgreSQL
 
-Open fstb file in  edinanotor
+Open fstb file in nanols editor
 
     $ sudo nano /etc/fstab  
 
