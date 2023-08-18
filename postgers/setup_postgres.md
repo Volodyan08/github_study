@@ -16,6 +16,6 @@ Switch connection to a new DB
 
     $ \c dbname
 
-Enable PostGIS (as of 3.0 contains just geometry/geography)
+Enable PostGIS (as of 3.0 contains just geometry/geography)(If necessary)
 
     $ CREATE EXTENSION postgis;
